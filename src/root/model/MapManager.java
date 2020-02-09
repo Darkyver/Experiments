@@ -27,8 +27,9 @@ public class MapManager implements MouseListener, MouseMotionListener {
         controlTurret = new ControlTurret(viewTurret);
         Random r = new Random();
 
-        controlTurret.createTurret(r.nextInt(MainFrame.WIDTH), r.nextInt(MainFrame.HEIGHT), 1000, 20);
-        controlTurret.createTurret(r.nextInt(MainFrame.WIDTH), r.nextInt(MainFrame.HEIGHT), 1000, 20);
+        for (int i = 0; i < 2; i++) {
+            controlTurret.createTurret(r.nextInt(MainFrame.WIDTH), r.nextInt(MainFrame.HEIGHT), 1000, 20);
+        }
 
 
         ViewBullet viewBullet = new ViewBullet();
