@@ -32,6 +32,7 @@ public class MapManager implements MouseListener, MouseMotionListener {
         }
 
 
+
         ViewBullet viewBullet = new ViewBullet();
         controlBullet = new ControlBullet(viewBullet);
 
@@ -39,7 +40,7 @@ public class MapManager implements MouseListener, MouseMotionListener {
         wall.setCoord(300, 200);
         wall.setSize(200, 5);
 
-
+        System.out.println("hi");
 
         ViewerWall viewerWall = new ViewerWall();
         controlWall = new ControlWall(viewerWall);
