@@ -3,7 +3,6 @@ package root.control;
 import root.model.Turret;
 import root.view.ViewTurret;
 
-import javax.management.openmbean.ArrayType;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -13,7 +12,6 @@ import static root.utils.Calculate.angleOf;
 public class ControlTurret implements ActionListener, MouseMotionListener {
 
     public static final int TURRET_SIZE = 70;
-    public static final int TURRET_DAMAGE = 70;
 
     private ArrayList<Turret> turrets;
     private ViewTurret viewTurret;

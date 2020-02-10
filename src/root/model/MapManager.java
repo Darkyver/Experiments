@@ -13,6 +13,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.util.Arrays;
 import java.util.Random;
 
 public class MapManager implements MouseListener, MouseMotionListener {
@@ -32,7 +35,6 @@ public class MapManager implements MouseListener, MouseMotionListener {
         }
 
 
-
         ViewBullet viewBullet = new ViewBullet();
         controlBullet = new ControlBullet(viewBullet);
 
@@ -40,7 +42,6 @@ public class MapManager implements MouseListener, MouseMotionListener {
         wall.setCoord(300, 200);
         wall.setSize(200, 5);
 
-        System.out.println("hi");
 
         ViewerWall viewerWall = new ViewerWall();
         controlWall = new ControlWall(viewerWall);
@@ -54,21 +55,25 @@ public class MapManager implements MouseListener, MouseMotionListener {
 
 
 
+
+
+
+
     }
 
-    public void save(){
+    public void save() {
         controlWall.saveWalls();
     }
 
 
-    public void render(Graphics2D g){
+    public void render(Graphics2D g) {
 
         controlBullet.render(g);
         controlWall.render(g);
         controlTurret.render(g);
     }
 
-    public void update(){
+    public void update() {
         controlTurret.update();
         controlBullet.update();
         controlWall.update();

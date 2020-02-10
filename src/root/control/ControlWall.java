@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ControlWall {
 
-    private final String path = "walls.res";
+    private final String path = "save/walls.save";
 
     private ViewerWall viewerWall;
     private ArrayList<Wall> walls;
@@ -20,6 +20,9 @@ public class ControlWall {
     public ControlWall(ViewerWall viewerWall) {
         walls = new ArrayList<>();
         this.viewerWall = viewerWall;
+
+
+
     }
 
 
@@ -55,8 +58,8 @@ public class ControlWall {
 
     public void loadWalls(){
         try {
-            FileInputStream fileInputStream = new FileInputStream(path);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            ClassLoader cl = this.getClass().getClassLoader();
+            ObjectInputStream objectInputStream = new ObjectInputStream(cl.getResourceAsStream("save/walls.save"));
             Object o;
             while((o = objectInputStream.readObject()) != null){
                 walls.add((Wall) o);
