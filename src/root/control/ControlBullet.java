@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class ControlBullet {
 
 
-    private static ArrayList<Bullet> bullets = new ArrayList<>();;
+    private static ArrayList<Bullet> bullets = new ArrayList<>();
 
     private ViewBullet viewBullet;
 

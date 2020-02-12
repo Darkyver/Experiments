@@ -49,14 +49,14 @@ public class GraphicsPanel extends JPanel implements Runnable {
         Random r = new Random();
         int iteration = 1000;
         for (int i = 0; i < iteration/3; i++) {
-            int size = r.nextInt(10);
+            int size = r.nextInt(12);
             int x = r.nextInt(MainFrame.WIDTH);
             int y = r.nextInt(MainFrame.HEIGHT);
             g.setColor(Color.GREEN);
             g.fillRect(x,y,size,size);
         }
         for (int i = 0; i < iteration; i++) {
-            int size = r.nextInt(10);
+            int size = r.nextInt(12);
             int x = r.nextInt(MainFrame.WIDTH);
             int y = r.nextInt(MainFrame.HEIGHT);
             g.setColor(Color.GREEN.darker().darker().darker());

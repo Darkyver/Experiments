@@ -34,8 +34,8 @@ public class ViewerWall {
                 //вертикальная стена
                 int count = height / width;
                 double newHeight = height / (float) count;
+                int xNow = x - width/2;
                 for (int i = 0; i < count; i++) {
-                    int xNow = x - width/2;
                     int yNow = (int) (newHeight * i) + y - height / 2;
                     g.drawImage(wallBlock, xNow, yNow, width, (int) newHeight+pop, null);
                 }
@@ -44,9 +44,9 @@ public class ViewerWall {
                 //горизонтальная стена
                 int count = width / height;
                 double newWidth = width / (float) count;
+                int yNow = y - height/2;
                 for (int i = 0; i < count; i++) {
                     int xNow = (int) (newWidth * i + x - width / 2);
-                    int yNow = y - height/2;
                     g.drawImage(wallBlock, xNow, yNow, (int) newWidth + pop, height, null);
                 }
             }

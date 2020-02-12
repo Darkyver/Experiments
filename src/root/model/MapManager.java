@@ -13,9 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-import java.io.*;
-import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.Random;
 
 public class MapManager implements MouseListener, MouseMotionListener {
