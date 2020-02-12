@@ -45,13 +45,13 @@ public class MapManager implements MouseListener, MouseMotionListener {
 
         ViewerWall viewerWall = new ViewerWall();
         controlWall = new ControlWall(viewerWall);
-//        controlWall.createWall(10, 10, 200, 40, 1000);
-//        controlWall.createWall(300, 100, 300, 40, 2000);
-//        controlWall.createWall(600, 200, 20, 150, 500);
-//
-//        controlWall.saveWalls();
+        controlWall.createWall(300, 500, 200, 30, 1000);
+        controlWall.createWall(300, 100, 300, 40, 2000);
+        controlWall.createWall(600, 200, 20, 150, 500);
 
-        controlWall.loadWalls();
+        controlWall.saveWalls();
+
+//        controlWall.loadWalls();
 
 
 
