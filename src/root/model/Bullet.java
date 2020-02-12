@@ -16,29 +16,20 @@ public class Bullet extends Model {
 
 
 
-    double gunX;
-    double gunY;
-
     public Bullet(double damage, double x, double y, double angle) {
         this.damage = damage;
         setCoord(x, y);
         setAngle(angle);
         impacted = false;
 
-        dx = Math.sin(Math.toRadians(angle)) * speed;
-        dy = Math.cos(Math.toRadians(angle)) * speed;
-
-        gunX = Math.cos(Math.toRadians(angle)) * speed;
-        gunY = Math.sin(Math.toRadians(angle)) * speed;
+        dx = Math.cos(Math.toRadians(angle)) * speed;
+        dy =  Math.sin(Math.toRadians(angle)) * speed;
     }
 
 
     public void update(){
-//        x += dx;
-//        y -= dy;
-
-        x += gunX;
-        y -= gunY;
+        x += dx;
+        y -= dy;
     }
 
     public boolean isAway(){
