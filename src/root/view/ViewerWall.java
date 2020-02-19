@@ -1,6 +1,7 @@
 package root.view;
 
 import root.model.Wall;
+import root.utils.ControlWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,8 +24,9 @@ public class ViewerWall {
         g.setColor(Color.GRAY);
 
         int pop = 3;
-        int x = (int) wall.getX();
-        int y = (int) wall.getY();
+        Point p = ControlWindow.toWindowCoordinate(wall.getX(),wall.getY());
+        int x = (int) p.getX();
+        int y = (int) p.getY();
         int width = (int) wall.getWidth();
         int height = (int) wall.getHeight();
 

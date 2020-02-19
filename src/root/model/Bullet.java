@@ -13,6 +13,7 @@ public class Bullet extends Model {
     private double dy;
 
     private boolean impacted;
+    private long timeCreate;
 
 
 
@@ -24,8 +25,12 @@ public class Bullet extends Model {
 
         dx = Math.cos(Math.toRadians(angle)) * speed;
         dy =  Math.sin(Math.toRadians(angle)) * speed;
+        timeCreate = System.currentTimeMillis();
     }
 
+    public long getTimeCreate() {
+        return timeCreate;
+    }
 
     public void update(){
         x += dx;

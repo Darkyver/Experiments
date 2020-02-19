@@ -1,6 +1,7 @@
 package root.control;
 
 import root.model.Turret;
+import root.utils.ControlWindow;
 import root.view.ViewTurret;
 
 import java.awt.*;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 
 import static root.utils.Calculate.angleOf;
 
-public class ControlTurret implements ActionListener, MouseMotionListener {
+public class ControlTurret implements MouseListener, MouseMotionListener {
 
     public static final int TURRET_SIZE = 70;
 
@@ -42,21 +43,20 @@ public class ControlTurret implements ActionListener, MouseMotionListener {
         }
     }
 
+    private void turnTurret(Turret t, double x, double y){
+        int tx = (int) t.getX();
+        int ty = (int) t.getY();
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < turrets.size(); i++) {
-            Turret t = turrets.get(i);
-            ControlBullet.pushBullet(t.fire());
-        }
+        Point p = ControlWindow.toMapCoordinate(x, y);
+        int mX = (int) p.getX();
+        int mY = (int) p.getY();
+
+
+        t.setAngle(angleOf(tx, ty, mX, mY));
     }
 
 
-
-
-
-
-
+    //MOUSE MOTION
     @Override
     public void mouseDragged(MouseEvent e) {
 
@@ -66,8 +66,41 @@ public class ControlTurret implements ActionListener, MouseMotionListener {
     public void mouseMoved(MouseEvent e) {
         for (int i = 0; i < turrets.size(); i++) {
             Turret t = turrets.get(i);
-            int x = (int) t.getX(), y = (int) t.getY(), mX = e.getX(), mY = e.getY();
-            t.setAngle(angleOf(x, y, mX, mY));
+            turnTurret(t, e.getX(), e.getY());
         }
     }
+    //MOUSE MOTION END
+
+
+
+    //MOUSE LISTENER
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        for (int i = 0; i < turrets.size(); i++) {
+            Turret t = turrets.get(i);
+            turnTurret(t, e.getX(), e.getY());
+            ControlBullet.pushBullet(t.fire());
+        }
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+    //MOUSE LISTENER END
 }

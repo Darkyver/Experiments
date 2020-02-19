@@ -39,6 +39,9 @@ public class ControlWall {
 
     public void saveWalls(){
         try {
+
+            ClassLoader cl = this.getClass().getClassLoader();
+            String path = cl.getResource(this.path).getPath();
             FileOutputStream outputStream = new FileOutputStream(path);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 

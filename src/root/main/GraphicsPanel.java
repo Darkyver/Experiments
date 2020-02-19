@@ -1,10 +1,7 @@
 package root.main;
 
-import root.control.ControlTurret;
-import root.model.MapManager;
-import root.model.Turret;
-import root.view.ViewTurret;
 
+import root.model.MapManager;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -30,6 +27,7 @@ public class GraphicsPanel extends JPanel implements Runnable {
 
 
     public GraphicsPanel(int width, int height) {
+        setFocusable(true);
         setPreferredSize(new Dimension(width, height));
         image = new BufferedImage(MainFrame.WIDTH, MainFrame.HEIGHT, BufferedImage.TYPE_INT_ARGB);
         background = new BufferedImage(MainFrame.WIDTH, MainFrame.HEIGHT, BufferedImage.TYPE_INT_ARGB);
@@ -39,6 +37,7 @@ public class GraphicsPanel extends JPanel implements Runnable {
 
         addMouseListener(mapManager);
         addMouseMotionListener(mapManager);
+        addKeyListener(mapManager);
 
 
 

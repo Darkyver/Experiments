@@ -1,6 +1,7 @@
 package root.view;
 
 import root.model.Turret;
+import root.utils.ControlWindow;
 
 
 import javax.swing.*;
@@ -35,8 +36,9 @@ public class ViewTurret {
 
     public void render(Graphics2D g, Turret t){
         g.setColor(Color.BLUE);
-        int x = (int) t.getX();
-        int y = (int) t.getY();
+        Point p = ControlWindow.toWindowCoordinate(t.getX(),t.getY());
+        int x = (int) p.getX();
+        int y = (int) p.getY();
         int width = (int) t.getWidth();
         int height = (int) t.getHeight();
         int pop = 3;

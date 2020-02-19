@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class ControlBullet {
 
-
+    private static final int timeToLive = 10000;
     private static ArrayList<Bullet> bullets = new ArrayList<>();
 
     private ViewBullet viewBullet;
@@ -44,7 +44,7 @@ public class ControlBullet {
         for (int i = 0; i < bullets.size(); i++) {
             Bullet b = bullets.get(i);
             b.update();
-            if(b.isAway() | b.isImpacted()){
+            if(timeToLive < System.currentTimeMillis() - b.getTimeCreate() | b.isImpacted()){
                 bullets.remove(b);
             }
         }
