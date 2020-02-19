@@ -2,7 +2,6 @@ package root.control;
 
 import root.model.Bullet;
 import root.model.Model;
-import root.model.Turret;
 import root.model.Wall;
 import root.view.ViewerWall;
 
@@ -22,33 +21,32 @@ public class ControlWall {
         this.viewerWall = viewerWall;
 
 
-
     }
 
 
-    public void createWall(int x, int y, int width, int height,  int healthPoint){
+    public void createWall(int x, int y, int width, int height, int healthPoint) {
         Wall wall = new Wall(healthPoint);
         wall.setCoord(x, y);
         wall.setSize(width, height);
         walls.add(wall);
     }
 
-    public void addWall(Wall w){
+    public void addWall(Wall w) {
         walls.add(w);
     }
 
-    public void saveWalls(){
+    public void saveWalls() {
         try {
 
             ClassLoader cl = this.getClass().getClassLoader();
-            String path = cl.getResource(this.path).getPath();
-            FileOutputStream outputStream = new FileOutputStream(path);
+            File f = new File("walls.save");
+            if (!f.exists()) {
+                f.createNewFile();
+            }
+            FileOutputStream outputStream = new FileOutputStream(f);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
-            for (int i = 0; i < walls.size(); i++) {
-                objectOutputStream.writeObject(walls.get(i));
-                System.out.println("saving...");
-            }
+            objectOutputStream.writeObject(walls);
             objectOutputStream.flush();
             objectOutputStream.close();
 
@@ -59,15 +57,15 @@ public class ControlWall {
         }
     }
 
-    public void loadWalls(){
+    public void loadWalls() {
         try {
             ClassLoader cl = this.getClass().getClassLoader();
-            ObjectInputStream objectInputStream = new ObjectInputStream(cl.getResourceAsStream("save/walls.save"));
-            Object o;
-            while((o = objectInputStream.readObject()) != null){
-                walls.add((Wall) o);
-                System.out.println("loading...");
-            }
+            InputStream inputStream = cl.getResourceAsStream(path);
+
+            ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+
+            Object o = objectInputStream.readObject();
+            walls = (ArrayList) o;
 
         } catch (FileNotFoundException e) {
             System.out.println("fail load walls.ser");
@@ -79,7 +77,7 @@ public class ControlWall {
     }
 
 
-    public void update(){
+    public void update() {
         for (int i = 0; i < walls.size(); i++) {
             Wall wall = walls.get(i);
             Model m = ControlBullet.getCollision(wall);
@@ -93,7 +91,7 @@ public class ControlWall {
 
     }
 
-    public void render(Graphics2D g){
+    public void render(Graphics2D g) {
 
         for (int i = 0; i < walls.size(); i++) {
             Wall wall = walls.get(i);

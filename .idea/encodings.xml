@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/null" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/res/save/walls.save" charset="windows-1251" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

@@ -7,7 +7,6 @@ public class Main {
 
         MainFrame mainFrame = new MainFrame();
 
-        System.out.println("start");
         mainFrame.start();
 
 

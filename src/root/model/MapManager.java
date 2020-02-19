@@ -61,7 +61,7 @@ public class MapManager implements MouseListener, MouseMotionListener, KeyListen
     }
 
     public void save() {
-        controlWall.saveWalls();
+//        controlWall.saveWalls();
     }
 
 
