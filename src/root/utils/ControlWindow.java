@@ -11,6 +11,9 @@ public class ControlWindow {
     private static int width = MainFrame.WIDTH;
     private static int height = MainFrame.HEIGHT;
 
+    private static double scale = 1.0;
+    private static double incValueScale = 0.01;
+
     private static boolean fixCamera = false;
 
 
@@ -20,11 +23,15 @@ public class ControlWindow {
      * @return real coordinate in window
      */
     public static Point toWindowCoordinate(double x, double y){
-        double newX =  (x - centerX + width/2f);
-        double newY =  (y - centerY + height/2f);
+        double newX =  (x - centerX)*scale + width/2f;
+        double newY =  (y - centerY)*scale + height/2f;
         Point p = new Point();
         p.setLocation(newX, newY);
         return p;
+    }
+
+    public static double toScale(double origScale){
+        return origScale * scale;
     }
 
     /**
@@ -33,8 +40,8 @@ public class ControlWindow {
      * @return real coordinate in MAP
      */
     public static Point toMapCoordinate(double x, double y){
-        double newX = (x + centerX - width/2f);
-        double newY = (y + centerY - height/2f);
+        double newX = (x - width/2f) / scale + centerX;
+        double newY = (y - height/2f) /scale + centerY;
         Point p = new Point();
         p.setLocation(newX, newY);
         return p;
@@ -54,8 +61,8 @@ public class ControlWindow {
      * @param y - preferred coordinate new center window in MAP coordinate system
      */
     public static void setCenterWindow(double x, double y){
-        centerX = (int) x;
-        centerY = (int) y;
+        centerX = (int) (x);
+        centerY = (int) (y);
     }
 
     public static int getCenterX() {
@@ -64,5 +71,12 @@ public class ControlWindow {
 
     public static int getCenterY() {
         return centerY;
+    }
+
+    public static void incScale(){
+        scale += incValueScale;
+    }
+    public static void decScale(){
+        scale -= incValueScale;
     }
 }

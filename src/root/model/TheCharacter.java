@@ -8,10 +8,12 @@ public class TheCharacter extends BreakableObject {
 
     private int direction;
     private double speed = 3;
+    private boolean focusFrame;
 
 
     public TheCharacter(double x, double y, double angle, double width, double height, int healthPoint) {
         super(x, y, angle, width, height, healthPoint);
+        focusFrame = true;
     }
 
     public TheCharacter(int healthPoint) {
@@ -37,7 +39,9 @@ public class TheCharacter extends BreakableObject {
                 break;
         }
 
-        ControlWindow.setCenterWindow(x, y);
+        if (focusFrame) {
+            ControlWindow.setCenterWindow(x, y);
+        }
 
     }
 
@@ -57,5 +61,13 @@ public class TheCharacter extends BreakableObject {
 
     public void setSpeed(double speed) {
         this.speed = speed;
+    }
+
+    public void grabFocus(boolean focus){
+        focusFrame = focus;
+    }
+
+    public boolean isFocusFrame() {
+        return focusFrame;
     }
 }

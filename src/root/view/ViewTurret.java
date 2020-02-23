@@ -39,8 +39,8 @@ public class ViewTurret {
         Point p = ControlWindow.toWindowCoordinate(t.getX(),t.getY());
         int x = (int) p.getX();
         int y = (int) p.getY();
-        int width = (int) t.getWidth();
-        int height = (int) t.getHeight();
+        int width = (int) ControlWindow.toScale(t.getWidth());
+        int height = (int) ControlWindow.toScale(t.getHeight());
         int pop = 3;
 
 

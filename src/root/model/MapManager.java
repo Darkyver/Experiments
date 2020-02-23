@@ -5,6 +5,7 @@ import root.control.ControlCharacter;
 import root.control.ControlTurret;
 import root.control.ControlWall;
 import root.main.MainFrame;
+import root.utils.ControlWindow;
 import root.view.ViewBullet;
 import root.view.ViewTurret;
 import root.view.ViewerWall;
@@ -13,7 +14,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
 
-public class MapManager implements MouseListener, MouseMotionListener, KeyListener {
+public class MapManager implements MouseListener, MouseMotionListener, KeyListener, MouseWheelListener {
 
     private ControlBullet controlBullet;
     private ControlTurret controlTurret;
@@ -139,6 +140,15 @@ public class MapManager implements MouseListener, MouseMotionListener, KeyListen
     @Override
     public void keyReleased(KeyEvent e) {
         controlCharacter.keyReleased(e);
+    }
+
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+        if(e.getWheelRotation()<0){
+            ControlWindow.incScale();
+        } else {
+            ControlWindow.decScale();
+        }
     }
 
     //KEY LISTENER END

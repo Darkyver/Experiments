@@ -13,8 +13,8 @@ public class ViewCharacter {
         Point p = ControlWindow.toWindowCoordinate(character.getX(),character.getY());
         int x = (int) p.getX();
         int y = (int) p.getY();
-        int width = (int) character.getWidth();
-        int height = (int) character.getHeight();
+        int width = (int) ControlWindow.toScale(character.getWidth());
+        int height = (int) ControlWindow.toScale(character.getHeight());
 
         g.drawRect(x - width/2,y - height/2,width,height);
     }

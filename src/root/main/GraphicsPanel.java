@@ -38,6 +38,7 @@ public class GraphicsPanel extends JPanel implements Runnable {
         addMouseListener(mapManager);
         addMouseMotionListener(mapManager);
         addKeyListener(mapManager);
+        addMouseWheelListener(mapManager);
 
 
 

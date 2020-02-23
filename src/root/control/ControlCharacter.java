@@ -33,24 +33,35 @@ public class ControlCharacter implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        switch (e.getKeyCode()){
-            case KeyEvent.VK_W:
-                character.setDirection(TheCharacter.UP);
-                break;
-            case KeyEvent.VK_D:
-                character.setDirection(TheCharacter.RIGHT);
-                break;
-            case KeyEvent.VK_S:
-                character.setDirection(TheCharacter.DOWN);
-                break;
-            case KeyEvent.VK_A:
-                character.setDirection(TheCharacter.LEFT);
-                break;
+
+        int i = e.getKeyCode();
+        if (i == KeyEvent.VK_W) {
+            character.setDirection(TheCharacter.UP);
+        }
+
+        if (i == KeyEvent.VK_D) {
+            character.setDirection(TheCharacter.RIGHT);
+        }
+
+        if (i == KeyEvent.VK_S) {
+            character.setDirection(TheCharacter.DOWN);
+        }
+
+        if (i == KeyEvent.VK_A) {
+            character.setDirection(TheCharacter.LEFT);
+        }
+
+        if (i == KeyEvent.VK_Y) {
+            character.grabFocus(!character.isFocusFrame());
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         character.setDirection(TheCharacter.STOP);
+    }
+
+    public void fixFrameOnCharacter(){
+
     }
 }

@@ -27,8 +27,8 @@ public class ViewerWall {
         Point p = ControlWindow.toWindowCoordinate(wall.getX(),wall.getY());
         int x = (int) p.getX();
         int y = (int) p.getY();
-        int width = (int) wall.getWidth();
-        int height = (int) wall.getHeight();
+        int width = (int) ControlWindow.toScale(wall.getWidth());
+        int height = (int) ControlWindow.toScale(wall.getHeight());
 
 
         if(texturesLoadCompleted){

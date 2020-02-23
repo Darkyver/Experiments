@@ -15,8 +15,8 @@ public class ViewBullet {
         Point p = ControlWindow.toWindowCoordinate(b.getX(),b.getY());
         int x = (int) p.getX();
         int y = (int) p.getY();
-        int width = (int) b.getWidth();
-        int height = (int) b.getHeight();
+        int width = (int) ControlWindow.toScale(b.getWidth());
+        int height = (int) ControlWindow.toScale(b.getHeight());
 
         g.fillOval(x - width/2,y - height/2,width,height);
 
